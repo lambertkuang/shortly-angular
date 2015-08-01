@@ -10,4 +10,8 @@ angular.module('shortly.links', [])
         })
     };
     $scope.getLinks();
+
+    $scope.testing = function(){
+      console.log('WORKING!!!!!!');
+    }
   });

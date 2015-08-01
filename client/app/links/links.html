@@ -1,10 +1,19 @@
-<div id='container' ng-controller='LinksController' ng-init="links = data.links" >
+<form action="/logout" method="get">
+  <input type="submit" value="Logout" name="Logout" id="Logout" />
+</form>
+<div class='navigation' ng-controller='LinksController'>
+  <ul>
+    <li><a href="#/links" class='index' ng-click='testing()'>All Links</a></li>
+    <li><a href="#/shorten" class='create' >Shorten</a></li>
+  </ul>
+</div>
+
+
+<div id='container' ng-controller='LinksController' ng-init="" ng-repeat="link in data.links">
   <img src='../assets/redirect_icon.png'/>
-  <div class='info' ng-repeat="link in links">
-    <pre>{{ link }}</pre>
-    <div class='visits'><span class='count'>{{visits}}</span>Visits</div>
-    <div class='title'>{{title}}</div>
-    <div class='original'>{{url}}</div>
-    <a href='{{base_url}}/{{code}}'>{{base_url}}/{{code}}</a>
-  </div>
+  <div class='link'>
+    <div class="visits"><span class='count'>{{ link.visits }}</span>Visits</div>
+    <div class='title'>{{ link.title }}</div>
+    <div class='original'>{{ link.url }}</div>
+    <a href='{{ link.base_url }}/{{ link.code }}'>{{ link.base_url }}/{{ link.code }}</a>
 </div>

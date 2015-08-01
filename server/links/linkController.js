@@ -75,6 +75,7 @@ module.exports = {
     var link = req.navLink;
     link.visits++;
     link.save(function (err, savedLink) {
+      console.log('saved link ------------->' + savedLink.url);
       if (err) {
         next(err);
       } else {
